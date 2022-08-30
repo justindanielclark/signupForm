@@ -7,22 +7,21 @@ body {
 }
 
 div.restrainingContainer {
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  height: 100vh;
-}
-
-section {
-  border: 1px solid red;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 section:first-of-type {
-  flex: 0 1 auto;
+  flex: 0 0 400px;
   background-image: url("./src/signingImage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  overflow: hidden;
 }
 section:first-of-type .banner {
   width: 100%;
@@ -47,19 +46,56 @@ section:first-of-type .banner p {
 }
 
 section:last-of-type {
-  flex: 1 0 70%;
+  flex: 1 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #DDD;
 }
-section:last-of-type form {
+section:last-of-type .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+}
+section:last-of-type .container p {
+  width: 100%;
+  padding: 1em 0;
+  line-height: 1.25em;
+}
+section:last-of-type .container p:first-of-type::before {
+  content: "L";
+  font-size: 3.5em;
+}
+section:last-of-type .container p:last-of-type {
+  padding-top: 0em;
+}
+
+form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px solid #DDD;
+  padding: 0.5em 1em;
 }
-section:last-of-type form .inputGroup {
-  flex: 1 0 50%;
+form .inputGroup {
+  flex: 0 0 48%;
   display: flex;
   flex-direction: column;
+  padding-bottom: 0.75em;
+}
+form .inputGroup label {
+  color: black;
+  position: relative;
+  padding: 0 0.5em;
+  bottom: -50%;
+  cursor: text;
+}
+form .inputGroup input {
+  padding: 0 0.5em;
+}
+form .inputGroup input:focus {
+  outline: none;
 }/*# sourceMappingURL=index.css.map */
