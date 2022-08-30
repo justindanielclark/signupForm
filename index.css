@@ -1,0 +1,23 @@
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: #123;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+section {
+  border: 1px solid red;
+}
+
+section:first-of-type {
+  flex: 1 0 30%;
+  background-image: url("./src/signingImage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+section:last-of-type {
+  flex: 1 0 70%;
+}/*# sourceMappingURL=index.css.map */
