@@ -1,5 +1,27 @@
+$layoutBreakpointLarge: 1200px;
+$layoutBreakpointMedium: 1024px;
+$layoutBreakpointSmall: 768px;
+$layoutBreakpointExtraSmall: 480px;
+$layoutSideImageSizeLarge: 400px;
+$layoutSideImageSizeMedium: 350px;
+$layoutSideImageSizeSmall: 300px;
+
+
+// @media (max-width: $layoutBreakpointLarge) {
+//   background-color: red;
+// }
+// @media (max-width: $layoutBreakpointMedium) {
+//   background-color: blue;
+// }
+// @media (max-width: $layoutBreakpointSmall) {
+//   background-color: green;
+// }
+// @media (max-width: $layoutBreakpointExtraSmall) {
+//   background-color: orange;
+// }
+
+
 $textColor: #DDD;
-$leftSectionWidth: 400px;
 $inputPadding: .6em;
 * {
   box-sizing: border-box;
@@ -7,22 +29,51 @@ $inputPadding: .6em;
 body {
   background-color: #123;
 }
+
 div.restrainingContainer {
+  border-left: 2px solid rgba(255, 255, 255, .6);
+  border-right: 2px solid rgba(255, 255, 255, .6);
   height: 100vh;
-  width: 100%;
+  max-width: $layoutBreakpointLarge;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: stretch;
+  @media (max-width: $layoutBreakpointLarge) {
+    border: none;
+    background-color: red;
+  }
+  @media (max-width: $layoutBreakpointMedium) {
+    background-color: blue;
+  }
+  @media (max-width: $layoutBreakpointSmall) {
+    background-color: green;
+    flex-direction: column;
+  }
+  @media (max-width: $layoutBreakpointExtraSmall) {
+    background-color: orange;
+  }
 }
+
 section:first-of-type {
-  flex: 1 1 0;
+  flex: 0 1 $layoutSideImageSizeLarge;
   background-image: url('./src/signingImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-
+  background-position: top;
+  @media (max-width: $layoutBreakpointLarge) {
+    flex: 0 1 $layoutSideImageSizeMedium;
+  }
+  @media (max-width: $layoutBreakpointMedium) {
+    flex: 0 1 $layoutSideImageSizeSmall;
+  }
+  @media (max-width: $layoutBreakpointSmall) {
+    flex: 0 1 200px;
+    background-position: left -15em;
+    background-size: 100%;
+  }
   &>.banner {
     width: 100%;
     margin: 8em 0 0 0;
@@ -34,6 +85,9 @@ section:first-of-type {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    @media (max-width: $layoutBreakpointSmall) {
+      margin: 4em 0 0 0;
+    }
 
     &>svg {
       height: 8em;
@@ -48,7 +102,7 @@ section:first-of-type {
   }
 }
 section:last-of-type {
-  flex: 0 0 450px;
+  flex: 1 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,7 +113,8 @@ section:last-of-type {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 600px;
+    min-width: 25em;
+    max-width: 45em;
     padding: 0 1em;
 
     &>p {
@@ -70,7 +125,10 @@ section:last-of-type {
 
     &>p:first-of-type::before {
       content: 'L';
+      border: 1px solid $textColor;
       font-size: 3.5em;
+      padding: .05em;
+      margin-right: .15em;
     }
 
     &>p:last-of-type {
@@ -87,13 +145,24 @@ form {
   justify-content: space-between;
   padding: .5em 1em;
   color: rgba(15, 15, 15, 1);
+  @media(max-width: $layoutBreakpointExtraSmall){
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }
 form > * {
   flex: 0 0 48%;
   margin-top: .7em;
+  @media(max-width: $layoutBreakpointExtraSmall){
+    flex: 1 0 0;
+    margin-top: 0;
+  }
 }
 button[type="submit"]{
   flex: 0 0 100%;
+  @media(max-width: $layoutBreakpointExtraSmall){
+    flex: 1 0 0;
+  }
 }
 .inputGroup {
   display: flex;
