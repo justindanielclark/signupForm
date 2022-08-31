@@ -7,9 +7,6 @@ body {
 }
 
 div.restrainingContainer {
-  border-left: 2px solid rgba(255, 255, 255, 0.6);
-  border-right: 2px solid rgba(255, 255, 255, 0.6);
-  height: 100vh;
   min-width: 320px;
   max-width: 1200px;
   margin: 0 auto;
@@ -48,6 +45,7 @@ section:first-of-type {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+  border-right: 4px solid rgba(255, 255, 255, 0.6);
 }
 @media (max-width: 1200px) {
   section:first-of-type {
@@ -104,6 +102,7 @@ section:last-of-type {
   justify-content: center;
   align-items: center;
   color: #e3dddc;
+  padding-top: 2em;
 }
 section:last-of-type > .container {
   font-size: 1.5rem;
@@ -159,7 +158,13 @@ form > * {
 }
 
 button[type=submit] {
-  flex: 0 0 100%;
+  margin-left: auto;
+  margin-right: 4em;
+  font-size: 1.25rem;
+  flex: 0 0 8em;
+  padding: 0.6em;
+  border: 2px solid #123;
+  border-radius: 5px;
 }
 @media (max-width: 480px) {
   button[type=submit] {
@@ -173,15 +178,17 @@ button[type=submit] {
 }
 .inputGroup > input {
   padding: 0.6em;
+  font-size: 1.25rem;
 }
 .inputGroup > label {
   color: #123;
   position: relative;
+  font-size: 2rem;
 }
 .inputGroup > label::before {
   content: "";
   display: block;
-  height: 2px;
+  height: 5px;
   width: 100%;
   position: absolute;
   background-color: #123;
@@ -190,15 +197,21 @@ button[type=submit] {
 .inputGroup > label::after {
   content: "";
   display: block;
-  height: 2px;
-  width: 10%;
+  height: 5px;
+  width: 0%;
   position: absolute;
-  background-color: green;
+  background-color: transparent;
   top: 90%;
   transition: width 0.5s;
 }
 .inputGroup > label.valid::after {
   content: "";
+  background-color: #1d9612;
+  width: 100%;
+}
+.inputGroup > label.invalid::after {
+  content: "";
+  background-color: #961912;
   width: 100%;
 }
 

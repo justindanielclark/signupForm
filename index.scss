@@ -2,6 +2,7 @@
 $containerPadding: .5em;
 $inputPadding: .6em;
 $marginCenterAlign: 0 auto;
+$validityBarSize: 5px;
 
 //Breakpoints
 $layoutBreakpointLarge: 1200px;
@@ -42,9 +43,8 @@ body {
   background-color: $colorDark;
 }
 div.restrainingContainer {
-  border-left: 2px solid $colorBorderHighlight;
-  border-right: 2px solid $colorBorderHighlight;
-  height: 100vh;
+  // border-left: 2px solid $colorBorderHighlight;
+  // border-right: 2px solid $colorBorderHighlight;
   min-width: 320px;
   max-width: $layoutBreakpointLarge;
   margin: 0 auto;
@@ -74,6 +74,7 @@ section:first-of-type {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+  border-right: 4px solid $colorBorderHighlight;
   @media (max-width: $layoutBreakpointLarge) {
     flex: 0 1 $layoutSideImageSizeMedium;
   }
@@ -123,6 +124,7 @@ section:last-of-type {
   justify-content: center;
   align-items: center;
   color: $colorWhite;
+  padding-top: 2em;
 
   &>.container {
     font-size: 1.5rem;
@@ -175,7 +177,13 @@ form > * {
   }
 }
 button[type="submit"]{
-  flex: 0 0 100%;
+  margin-left: auto;
+  margin-right: 4em;
+  font-size: 1.25rem;
+  flex: 0 0 8em;
+  padding: $inputPadding;
+  border: 2px solid $colorDark;
+  border-radius: 5px;
   @media(max-width: $layoutBreakpointExtraSmall){
     flex: 1 0 0;
   }
@@ -185,15 +193,17 @@ button[type="submit"]{
   flex-direction: column;
   &>input {
     padding: $inputPadding;
+    font-size: 1.25rem;
   }
   &>label{
     color: #123;
     position: relative;
+    font-size: 2rem;
   }
   &>label::before {
     content: '';
     display: block;
-    height: 2px;
+    height: $validityBarSize;
     width: 100%;
     position: absolute;
     background-color: #123;
@@ -202,15 +212,21 @@ button[type="submit"]{
   &>label::after {
     content: '';
     display: block;
-    height: 2px;
-    width: 10%;
+    height: $validityBarSize;
+    width: 0%;
     position: absolute;
-    background-color: green;
+    background-color: transparent;
     top: 90%;
     transition: width .5s;
   }
   &>label.valid::after {
     content: '';
+    background-color: $colorValid;
+    width: 100%;
+  }
+  &>label.invalid::after {
+    content: '';
+    background-color: $colorInvalid;
     width: 100%;
   }
 }
