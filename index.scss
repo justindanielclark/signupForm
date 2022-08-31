@@ -70,11 +70,12 @@ section:first-of-type {
     flex: 0 1 $layoutSideImageSizeSmall;
   }
   @media (max-width: $layoutBreakpointSmall) {
-    flex: 0 1 200px;
+    flex: 0 1 0;
     background-position: left -15em;
     background-size: 100%;
   }
   &>.banner {
+    font-size: 3em;
     width: 100%;
     margin: 8em 0 0 0;
     padding: .5em .5em;
@@ -86,17 +87,16 @@ section:first-of-type {
     justify-content: center;
     align-items: center;
     @media (max-width: $layoutBreakpointSmall) {
-      margin: 4em 0 0 0;
+      margin: 1em 0;
     }
 
     &>svg {
-      height: 8em;
+      height: 8rem;
       stroke: #DDD;
       fill: #DDD;
     }
 
     &>p {
-      font-size: 2em;
       text-align: right;
     }
   }
@@ -110,6 +110,7 @@ section:last-of-type {
   color: $textColor;
 
   &>.container {
+    font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,9 +127,10 @@ section:last-of-type {
     &>p:first-of-type::before {
       content: 'L';
       border: 1px solid $textColor;
-      font-size: 3.5em;
       padding: .05em;
       margin-right: .15em;
+      position: relative;
+      top: -.25em;
     }
 
     &>p:last-of-type {

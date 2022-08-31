@@ -60,12 +60,13 @@ section:first-of-type {
 }
 @media (max-width: 768px) {
   section:first-of-type {
-    flex: 0 1 200px;
+    flex: 0 1 0;
     background-position: left -15em;
     background-size: 100%;
   }
 }
 section:first-of-type > .banner {
+  font-size: 3em;
   width: 100%;
   margin: 8em 0 0 0;
   padding: 0.5em 0.5em;
@@ -79,16 +80,15 @@ section:first-of-type > .banner {
 }
 @media (max-width: 768px) {
   section:first-of-type > .banner {
-    margin: 4em 0 0 0;
+    margin: 1em 0;
   }
 }
 section:first-of-type > .banner > svg {
-  height: 8em;
+  height: 8rem;
   stroke: #DDD;
   fill: #DDD;
 }
 section:first-of-type > .banner > p {
-  font-size: 2em;
   text-align: right;
 }
 
@@ -101,6 +101,7 @@ section:last-of-type {
   color: #DDD;
 }
 section:last-of-type > .container {
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,9 +117,10 @@ section:last-of-type > .container > p {
 section:last-of-type > .container > p:first-of-type::before {
   content: "L";
   border: 1px solid #DDD;
-  font-size: 3.5em;
   padding: 0.05em;
   margin-right: 0.15em;
+  position: relative;
+  top: -0.25em;
 }
 section:last-of-type > .container > p:last-of-type {
   padding-top: 0em;
