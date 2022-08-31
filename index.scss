@@ -1,3 +1,9 @@
+//Layout
+$containerPadding: .5em;
+$inputPadding: .6em;
+$marginCenterAlign: 0 auto;
+
+//Breakpoints
 $layoutBreakpointLarge: 1200px;
 $layoutBreakpointMedium: 1024px;
 $layoutBreakpointSmall: 768px;
@@ -5,6 +11,15 @@ $layoutBreakpointExtraSmall: 480px;
 $layoutSideImageSizeLarge: 400px;
 $layoutSideImageSizeMedium: 350px;
 $layoutSideImageSizeSmall: 300px;
+
+//Colors
+$colorTextDark: rgba(15,15,15,1);
+$colorDark: #123;
+$colorWhite: #e3dddc;
+$colorValid: #1d9612;
+$colorInvalid: #961912;
+$colorBorderHighlight: rgba(255, 255, 255, .6);
+$colorBackgroundSemiTransparent: rgba(0,0,0,.5);
 
 
 // @media (max-width: $layoutBreakpointLarge) {
@@ -20,20 +35,17 @@ $layoutSideImageSizeSmall: 300px;
 //   background-color: orange;
 // }
 
-
-$textColor: #DDD;
-$inputPadding: .6em;
 * {
   box-sizing: border-box;
 }
 body {
-  background-color: #123;
+  background-color: $colorDark;
 }
-
 div.restrainingContainer {
-  border-left: 2px solid rgba(255, 255, 255, .6);
-  border-right: 2px solid rgba(255, 255, 255, .6);
+  border-left: 2px solid $colorBorderHighlight;
+  border-right: 2px solid $colorBorderHighlight;
   height: 100vh;
+  min-width: 320px;
   max-width: $layoutBreakpointLarge;
   margin: 0 auto;
   display: flex;
@@ -43,7 +55,7 @@ div.restrainingContainer {
   align-items: stretch;
   @media (max-width: $layoutBreakpointLarge) {
     border: none;
-    background-color: red;
+    background-color: purple;
   }
   @media (max-width: $layoutBreakpointMedium) {
     background-color: blue;
@@ -56,7 +68,6 @@ div.restrainingContainer {
     background-color: orange;
   }
 }
-
 section:first-of-type {
   flex: 0 1 $layoutSideImageSizeLarge;
   background-image: url('./src/signingImage.jpg');
@@ -75,14 +86,13 @@ section:first-of-type {
     background-size: 100%;
   }
   &>.banner {
-    font-size: 3em;
     width: 100%;
-    margin: 8em 0 0 0;
-    padding: .5em .5em;
-    background-color: rgba(0,0,0,.5);
+    margin: 5em 0 0 0;
+    padding: $containerPadding;
+    background-color: $colorBackgroundSemiTransparent;
     color: #DDD;
     display: flex;
-    gap: .5em;
+    gap: $containerPadding;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -91,12 +101,17 @@ section:first-of-type {
     }
 
     &>svg {
-      height: 8rem;
-      stroke: #DDD;
-      fill: #DDD;
+      flex: 1 0 0;
+      height: 60px;
+      width: 60px;
+      font-size: .5rem;
+      stroke: $colorWhite;
+      fill: $colorWhite;
     }
 
     &>p {
+      flex: 1 0 0;
+      font-size: 3rem;
       text-align: right;
     }
   }
@@ -107,15 +122,13 @@ section:last-of-type {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: $textColor;
+  color: $colorWhite;
 
   &>.container {
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 25em;
-    max-width: 45em;
     padding: 0 1em;
 
     &>p {
@@ -126,7 +139,7 @@ section:last-of-type {
 
     &>p:first-of-type::before {
       content: 'L';
-      border: 1px solid $textColor;
+      border: 1px solid $colorWhite;
       padding: .05em;
       margin-right: .15em;
       position: relative;
@@ -146,7 +159,7 @@ form {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: .5em 1em;
+  padding: $containerPadding;
   color: rgba(15, 15, 15, 1);
   @media(max-width: $layoutBreakpointExtraSmall){
     flex-direction: column;
@@ -170,6 +183,36 @@ button[type="submit"]{
 .inputGroup {
   display: flex;
   flex-direction: column;
+  &>input {
+    padding: $inputPadding;
+  }
+  &>label{
+    color: #123;
+    position: relative;
+  }
+  &>label::before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    background-color: #123;
+    top: 90%;
+  }
+  &>label::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 10%;
+    position: absolute;
+    background-color: green;
+    top: 90%;
+    transition: width .5s;
+  }
+  &>label.valid::after {
+    content: '';
+    width: 100%;
+  }
 }
 .passwordInputGroup>.inputGroup:nth-of-type(2) {
   margin-top: .7em;
