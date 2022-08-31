@@ -1,5 +1,6 @@
 $textColor: #DDD;
 $leftSectionWidth: 400px;
+$inputPadding: .6em;
 * {
   box-sizing: border-box;
 }
@@ -17,15 +18,15 @@ div.restrainingContainer {
   align-items: stretch;
 }
 section:first-of-type {
-  flex: 0 0 400px;
+  flex: 1 1 0;
   background-image: url('./src/signingImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 
-  .banner {
+  &>.banner {
     width: 100%;
     margin: 8em 0 0 0;
-    padding: 0 2em;
+    padding: .5em .5em;
     background-color: rgba(0,0,0,.5);
     color: #DDD;
     display: flex;
@@ -33,72 +34,80 @@ section:first-of-type {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    svg {
+
+    &>svg {
       height: 8em;
       stroke: #DDD;
       fill: #DDD;
     }
-    p {
-      font-size: 3em;
+
+    &>p {
+      font-size: 2em;
       text-align: right;
     }
   }
 }
 section:last-of-type {
-  flex: 1 0 0;
+  flex: 0 0 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: $textColor;
 
-  .container {
+  &>.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 600px;
-    p {
+    padding: 0 1em;
+
+    &>p {
       width: 100%;
       padding: 1em 0;
       line-height: 1.25em;
     }
-    p:first-of-type::before {
+
+    &>p:first-of-type::before {
       content: 'L';
       font-size: 3.5em;
     }
-    p:last-of-type {
+
+    &>p:last-of-type {
       padding-top: 0em;
     }
   }
 }
-
 form {
+  border-radius: 5px;
+  background-color: #DDD;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  border: 1px solid $textColor;
   padding: .5em 1em;
-
-  .inputGroup {
-    flex: 0 0 48%;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: .75em;
-    label {
-      color: black;
-      position: relative;
-      padding: 0 .5em;
-      bottom: -50%;
-      cursor: text;
-    }
-    input {
-      padding: 0 .5em;
-    }
-    input:focus {
-      outline: none;
+  color: rgba(15, 15, 15, 1);
+}
+form > * {
+  flex: 0 0 48%;
+  margin-top: .7em;
+}
+button[type="submit"]{
+  flex: 0 0 100%;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+.passwordInputGroup>.inputGroup:nth-of-type(2) {
+  margin-top: .7em;
+}
+.passwordValidatorGroup {
+  &>ul{
+    list-style-type: circle;
+    padding-left: 1.5em;
+    &>li{
+      font-size: .75em;
     }
   }
 }
-
-// Label Transition States

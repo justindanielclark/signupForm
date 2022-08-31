@@ -18,15 +18,15 @@ div.restrainingContainer {
 }
 
 section:first-of-type {
-  flex: 0 0 400px;
+  flex: 1 1 0;
   background-image: url("./src/signingImage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
-section:first-of-type .banner {
+section:first-of-type > .banner {
   width: 100%;
   margin: 8em 0 0 0;
-  padding: 0 2em;
+  padding: 0.5em 0.5em;
   background-color: rgba(0, 0, 0, 0.5);
   color: #DDD;
   display: flex;
@@ -35,67 +35,77 @@ section:first-of-type .banner {
   justify-content: center;
   align-items: center;
 }
-section:first-of-type .banner svg {
+section:first-of-type > .banner > svg {
   height: 8em;
   stroke: #DDD;
   fill: #DDD;
 }
-section:first-of-type .banner p {
-  font-size: 3em;
+section:first-of-type > .banner > p {
+  font-size: 2em;
   text-align: right;
 }
 
 section:last-of-type {
-  flex: 1 0 0;
+  flex: 0 0 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #DDD;
 }
-section:last-of-type .container {
+section:last-of-type > .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
+  padding: 0 1em;
 }
-section:last-of-type .container p {
+section:last-of-type > .container > p {
   width: 100%;
   padding: 1em 0;
   line-height: 1.25em;
 }
-section:last-of-type .container p:first-of-type::before {
+section:last-of-type > .container > p:first-of-type::before {
   content: "L";
   font-size: 3.5em;
 }
-section:last-of-type .container p:last-of-type {
+section:last-of-type > .container > p:last-of-type {
   padding-top: 0em;
 }
 
 form {
+  border-radius: 5px;
+  background-color: #DDD;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  border: 1px solid #DDD;
   padding: 0.5em 1em;
+  color: rgb(15, 15, 15);
 }
-form .inputGroup {
+
+form > * {
   flex: 0 0 48%;
+  margin-top: 0.7em;
+}
+
+button[type=submit] {
+  flex: 0 0 100%;
+}
+
+.inputGroup {
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.75em;
 }
-form .inputGroup label {
-  color: black;
-  position: relative;
-  padding: 0 0.5em;
-  bottom: -50%;
-  cursor: text;
+
+.passwordInputGroup > .inputGroup:nth-of-type(2) {
+  margin-top: 0.7em;
 }
-form .inputGroup input {
-  padding: 0 0.5em;
+
+.passwordValidatorGroup > ul {
+  list-style-type: circle;
+  padding-left: 1.5em;
 }
-form .inputGroup input:focus {
-  outline: none;
+.passwordValidatorGroup > ul > li {
+  font-size: 0.75em;
 }/*# sourceMappingURL=index.css.map */

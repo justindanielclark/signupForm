@@ -72,18 +72,32 @@
           <label for="phone">Phone Number</label>
           <input type="text" name="phone">
         </div>
-        <div class="inputGroup" data-input="password">
-          <label for="password">Password</label>
-          <input type="password" name="password">
+        <div class="passwordInputGroup">
+          <div class="inputGroup" data-input="password">
+            <label for="password">Password</label>
+            <input type="password" name="password">
+          </div>
+          <div class="inputGroup" data-input="passwordConfirm">
+            <label for="passwordConfirm">Confirm Password</label>
+            <input type="password" name="passwordConfirm">
+          </div>
         </div>
-        <div class="inputGroup" data-input="passwordConfirm">
-          <label for="passwordConfirm">Confirm Password</label>
-          <input type="password" name="passwordConfirm">
+        <div class="passwordValidatorGroup">
+          <p>Password Requirements:</p>
+          <ul>
+            <li>is at Least 7 Characters Long</li>
+            <li>has an Uppercase Letter</li>
+            <li>has a Lowercase Letter</li>
+            <li>contains a Digit</li>
+            <li>contains a Special Character</li>
+            <li>match each other</li>
+          </ul>
         </div>
         <button type="submit">Submit</button>
       </form>
     </div>
   </section>
 </div>
+<script src="index.js"></script>
 </body>
 </html>
