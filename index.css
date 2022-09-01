@@ -4,11 +4,13 @@
 
 body {
   background-color: #123;
+  height: 100vh;
 }
 
 div.restrainingContainer {
   min-width: 320px;
   max-width: 1200px;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -118,8 +120,9 @@ section:last-of-type > .container > p {
 }
 section:last-of-type > .container > p:first-of-type::before {
   content: "L";
-  border: 1px solid #e3dddc;
-  padding: 0.05em;
+  border: 4px solid #e3dddc;
+  border-radius: 4px;
+  padding: 0.05em 0.2em;
   margin-right: 0.15em;
   position: relative;
   font-size: 2em;
@@ -162,7 +165,7 @@ button[type=submit] {
   margin-right: 4em;
   font-size: 1.25rem;
   flex: 0 0 8em;
-  padding: 0.6em;
+  padding: 0.2em;
   border: 2px solid #123;
   border-radius: 5px;
 }
@@ -175,15 +178,43 @@ button[type=submit] {
 .inputGroup {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
-.inputGroup > input {
-  padding: 0.6em;
-  font-size: 1.25rem;
+.inputGroup > div.inputWraper {
+  position: relative;
+  overflow: hidden;
+}
+.inputGroup > div.inputWrapper::before {
+  content: "!";
+  font-weight: 900;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  right: 5px;
+  top: 97%;
+  transform: translateY(-100%);
+  z-index: 100;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: red;
+}
+.inputGroup > div.inputWrapper > input {
+  padding: 0.2em;
+  margin-top: 0.2em;
+  font-size: 1rem;
+  position: relative;
+  width: 100%;
+}
+.inputGroup > div.inputWrapper > input:focus {
+  outline: none;
 }
 .inputGroup > label {
   color: #123;
   position: relative;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .inputGroup > label::before {
   content: "";

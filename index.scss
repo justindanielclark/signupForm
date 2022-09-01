@@ -1,6 +1,6 @@
 //Layout
 $containerPadding: .5em;
-$inputPadding: .6em;
+$inputPadding: .2em;
 $marginCenterAlign: 0 auto;
 $validityBarSize: 5px;
 
@@ -41,12 +41,14 @@ $colorBackgroundSemiTransparent: rgba(0,0,0,.5);
 }
 body {
   background-color: $colorDark;
+  height: 100vh;
 }
 div.restrainingContainer {
   // border-left: 2px solid $colorBorderHighlight;
   // border-right: 2px solid $colorBorderHighlight;
   min-width: 320px;
   max-width: $layoutBreakpointLarge;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -141,8 +143,9 @@ section:last-of-type {
 
     &>p:first-of-type::before {
       content: 'L';
-      border: 1px solid $colorWhite;
-      padding: .05em;
+      border: 4px solid $colorWhite;
+      border-radius: 4px;
+      padding: .05em .2em;
       margin-right: .15em;
       position: relative;
       font-size: 2em;
@@ -191,14 +194,42 @@ button[type="submit"]{
 .inputGroup {
   display: flex;
   flex-direction: column;
-  &>input {
-    padding: $inputPadding;
-    font-size: 1.25rem;
+  position: relative;
+  &>div.inputWraper{
+    position: relative;
+    overflow: hidden;
   }
-  &>label{
+  &>div.inputWrapper::before {
+    content: '!';
+    font-weight: 900;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    top: 97%;
+    transform: translateY(-100%);
+    z-index: 100;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: red;
+  }
+  &>div.inputWrapper>input {
+    padding: $inputPadding;
+    margin-top: .2em;
+    font-size: 1.0rem;
+    position: relative;
+    width: 100%;
+  }
+  &>div.inputWrapper>input:focus {
+    outline: none;
+  }
+  &>label {
     color: #123;
     position: relative;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   &>label::before {
     content: '';

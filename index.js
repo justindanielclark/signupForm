@@ -30,7 +30,6 @@ function toggleValidityOnBlur(input, label){
   }
 }  
 
-let phoneDataInject = false;
 const numberRegex = new RegExp(`[0-9]`);
 const phoneInputGroup = document.querySelector(`.inputGroup[data-input="phone"]`);
   const phoneInput = phoneInputGroup.querySelector(`input`);
@@ -40,15 +39,47 @@ const maskMap = new Map();
   maskMap.set(`4`, `)`);
   maskMap.set(`8`, `-`)
 phoneInput.addEventListener('input', (e)=>{
+  let str = e.target.value;
   if(lastKeyDown === `Backspace`){
-    if(e.target.value !== ``){
-      
+    if(str !== ``){
+      if(str.length === 1 || str.length === 4 || str.length === 8){
+        e.target.value = str.slice(0, str.length-1);
+      }
     } 
-  } else if (numberRegex.test(e.target.value[e.target.value.length-1])){
-
+  } else if (numberRegex.test(lastKeyDown) && str.length <= 13){
+    switch(str.length){
+      case 1: {
+        e.target.value = `(` + str;
+        break;
+      }
+      case 4: {
+        e.target.value = str + `)`;
+        break;
+      }
+      case 8: {
+        e.target.value = str + '-';
+        break;
+      }
+    }
   } else {
-
+    e.target.value = str.slice(0, str.length-1);
   }
 });
-
+phoneInput.addEventListener(`blur`, (e)=>{
+  if(e.target.value.length === 13){
+    if(!phoneLabel.classList.contains(`valid`)){
+      phoneLabel.classList.toggle(`valid`);
+    }
+    if(phoneLabel.classList.contains(`invalid`)){
+      phoneLabel.classList.toggle(`invalid`);
+    }
+  } else {
+    if(!phoneLabel.classList.contains(`invalid`)){
+      phoneLabel.classList.toggle(`invalid`);
+    }
+    if(phoneLabel.classList.contains(`valid`)){
+      phoneLabel.classList.toggle(`valid`);
+    }
+  }
+})
 
