@@ -3,13 +3,14 @@ document.addEventListener('keydown',(e)=>{
   lastKeyDown = e.key;
 });
 
-const nameRegex = new RegExp(`([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+`);
+const nameRegex = new RegExp(`([A-Z,À-ÿ][-,a-z. ']+[ ]*)+`);
+
 const fNameInputGroup = document.querySelector(`.inputGroup[data-input="fName"]`);
   const fNameInput = fNameInputGroup.querySelector(`input`);
-  const fNameLabel = fNameInputGroup.querySelector(`label`);
+  const fNameLabel = fNameInputGroup.querySelector(`.labelWrapper`);
 const lNameInputGroup = document.querySelector(`.inputGroup[data-input="lName"]`);
   const lNameInput = lNameInputGroup.querySelector(`input`);
-  const lNameLabel = lNameInputGroup.querySelector(`label`);
+  const lNameLabel = lNameInputGroup.querySelector(`.labelWrapper`);
 fNameInput.addEventListener(`blur`, (e)=>toggleValidityOnBlur(fNameInput, fNameLabel))
 lNameInput.addEventListener(`blur`, (e)=>toggleValidityOnBlur(lNameInput, lNameLabel))
 function toggleValidityOnBlur(input, label){

@@ -41,20 +41,21 @@ $colorBackgroundSemiTransparent: rgba(0,0,0,.5);
 }
 body {
   background-color: $colorDark;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-content: stretch;
 }
 div.restrainingContainer {
-  // border-left: 2px solid $colorBorderHighlight;
-  // border-right: 2px solid $colorBorderHighlight;
   min-width: 320px;
   max-width: $layoutBreakpointLarge;
-  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: stretch;
+  background-color: darkgoldenrod;
   @media (max-width: $layoutBreakpointLarge) {
     border: none;
     background-color: purple;
@@ -126,14 +127,14 @@ section:last-of-type {
   justify-content: center;
   align-items: center;
   color: $colorWhite;
-  padding-top: 2em;
 
   &>.container {
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 1em;
+    padding: 1em;
+    overflow: auto;
 
     &>p {
       width: 100%;
@@ -163,20 +164,109 @@ form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  gap: .5em;
   padding: $containerPadding;
   color: rgba(15, 15, 15, 1);
+  margin-bottom: 2em;
   @media(max-width: $layoutBreakpointExtraSmall){
     flex-direction: column;
     flex-wrap: nowrap;
   }
 }
 form > * {
-  flex: 0 0 48%;
+  flex: 1 0 300px;
   margin-top: .7em;
   @media(max-width: $layoutBreakpointExtraSmall){
     flex: 1 0 0;
     margin-top: 0;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  &>input {
+    padding: $inputPadding;
+    margin-top: .2em;
+    font-size: 1.0rem;
+    position: relative;
+    width: 100%;
+  }
+  &>input:focus {
+    outline: none;
+  }
+  &>.labelWrapper {
+    position: relative;
+  }
+  &>.labelWrapper>label {
+    color: #123;
+    position: relative;
+    font-size: 1.5rem;
+  }
+  &>.labelWrapper::before {
+    content: '';
+    display: block;
+    height: $validityBarSize;
+    width: 100%;
+    position: absolute;
+    background-color: #123;
+    top: 90%;
+  }
+  &>.labelWrapper::after {
+    content: '';
+    display: block;
+    height: $validityBarSize;
+    width: 0%;
+    position: absolute;
+    background-color: transparent;
+    top: 90%;
+    transition: width .5s;
+  }
+  &>.labelWrapper.valid::after {
+    content: '';
+    background-color: $colorValid;
+    width: 100%;
+  }
+  &>.labelWrapper.invalid::after {
+    content: '';
+    background-color: $colorInvalid;
+    width: 100%;
+  }
+}
+.labelWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.labelWrapper>.inputNoticeIcon {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  height: 24px;
+  width: 24px;
+  transition: top .25s ease-in;
+  &>svg{
+    stroke: transparent;
+    fill: $colorInvalid;
+  }
+}
+.labelWrapper.invalid>.inputNoticeIcon {
+  top: 0%;
+}
+.passwordInputGroup>.inputGroup:nth-of-type(2) {
+  margin-top: .7em;
+}
+.passwordValidatorGroup {
+  &>ul{
+    list-style-type: circle;
+    padding-left: 1.5em;
+    &>li{
+      font-size: .75em;
+    }
   }
 }
 button[type="submit"]{
@@ -189,87 +279,5 @@ button[type="submit"]{
   border-radius: 5px;
   @media(max-width: $layoutBreakpointExtraSmall){
     flex: 1 0 0;
-  }
-}
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  &>div.inputWraper{
-    position: relative;
-    overflow: hidden;
-  }
-  &>div.inputWrapper::before {
-    content: '!';
-    font-weight: 900;
-    color: white;
-    border-radius: 50%;
-    position: absolute;
-    right: 5px;
-    top: 97%;
-    transform: translateY(-100%);
-    z-index: 100;
-    height: 25px;
-    width: 25px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: red;
-  }
-  &>div.inputWrapper>input {
-    padding: $inputPadding;
-    margin-top: .2em;
-    font-size: 1.0rem;
-    position: relative;
-    width: 100%;
-  }
-  &>div.inputWrapper>input:focus {
-    outline: none;
-  }
-  &>label {
-    color: #123;
-    position: relative;
-    font-size: 1.5rem;
-  }
-  &>label::before {
-    content: '';
-    display: block;
-    height: $validityBarSize;
-    width: 100%;
-    position: absolute;
-    background-color: #123;
-    top: 90%;
-  }
-  &>label::after {
-    content: '';
-    display: block;
-    height: $validityBarSize;
-    width: 0%;
-    position: absolute;
-    background-color: transparent;
-    top: 90%;
-    transition: width .5s;
-  }
-  &>label.valid::after {
-    content: '';
-    background-color: $colorValid;
-    width: 100%;
-  }
-  &>label.invalid::after {
-    content: '';
-    background-color: $colorInvalid;
-    width: 100%;
-  }
-}
-.passwordInputGroup>.inputGroup:nth-of-type(2) {
-  margin-top: .7em;
-}
-.passwordValidatorGroup {
-  &>ul{
-    list-style-type: circle;
-    padding-left: 1.5em;
-    &>li{
-      font-size: .75em;
-    }
   }
 }
