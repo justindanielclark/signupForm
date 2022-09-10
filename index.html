@@ -56,66 +56,75 @@
       <p>orem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti asperiores non, perferendis dolorum autem modi esse eveniet voluptatum repellendus aperiam minima cum ratione? Numquam porro accusamus natus asperiores eius dignissimos?</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       <form action="">
-        <div class="inputGroup" data-input="fName">
-          <div class="labelWrapper">
-            <label for="fName">First Name</label>
-            <div class="inputNoticeIcon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.001 10h2v5h-2zM11 16h2v2h-2z"/><path d="M13.768 4.2C13.42 3.545 12.742 3.138 12 3.138s-1.42.407-1.768 1.063L2.894 18.064a1.986 1.986 0 0 0 .054 1.968A1.984 1.984 0 0 0 4.661 21h14.678c.708 0 1.349-.362 1.714-.968a1.989 1.989 0 0 0 .054-1.968L13.768 4.2zM4.661 19 12 5.137 19.344 19H4.661z"/></svg>
-            </div>
-          </div>
-          <input type="text" name="fName">
-          <p class="inputNoticeMessage"></p>
-        </div>
-        <div class="inputGroup" data-input="lName">
-          <div class="labelWrapper">
-            <label for="lName">Last Name</label>
-            <div class="inputNoticeIcon"></div>
-          </div>
-          <input type="text" name="lName">
-          <p class="inputNoticeMessage"></p>
-        </div>
-        <div class="inputGroup" data-input="email">
-          <div class="labelWrapper">
-            <label for="email">Email</label>
-            <div class="inputNoticeIcon"></div>
-          </div>
-          <input type="text" name="email">
-          <p class="inputNoticeMessage"></p>
-        </div>
-        <div class="inputGroup" data-input="phone">
-          <div class="labelWrapper">
-            <label for="phone">Phone Number</label>
-            <div class="inputNoticeIcon"></div>
-          </div>
-          <input type="text" name="phone">
-          <p class="inputNoticeMessage"></p>
-        </div>
-        <div class="passwordInputGroup">
-          <div class="inputGroup" data-input="password">
+        <div class="formContainer">
+          <div class="inputGroup" data-input="fName">
             <div class="labelWrapper">
-              <label for="password">Password</label>
-              <div class="inputNoticeIcon"></div>
+              <label for="fName">First Name</label>
+              <div class="inputNoticeIcon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.001 10h2v5h-2zM11 16h2v2h-2z"/><path d="M13.768 4.2C13.42 3.545 12.742 3.138 12 3.138s-1.42.407-1.768 1.063L2.894 18.064a1.986 1.986 0 0 0 .054 1.968A1.984 1.984 0 0 0 4.661 21h14.678c.708 0 1.349-.362 1.714-.968a1.989 1.989 0 0 0 .054-1.968L13.768 4.2zM4.661 19 12 5.137 19.344 19H4.661z"/></svg>
+              </div>
             </div>
-            <input type="password" name="password">
+            <input type="text" name="fName">
+            <p class="inputNoticeMessage">This is a Message</p>
           </div>
-          <div class="inputGroup" data-input="passwordConfirm">
+          <div class="inputGroup" data-input="lName">
             <div class="labelWrapper">
-              <label for="passwordConfirm">Confirm Password</label>
-              <div class="inputNoticeIcon"></div>
+              <label for="lName">Last Name</label>
+              <div class="inputNoticeIcon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.001 10h2v5h-2zM11 16h2v2h-2z"/><path d="M13.768 4.2C13.42 3.545 12.742 3.138 12 3.138s-1.42.407-1.768 1.063L2.894 18.064a1.986 1.986 0 0 0 .054 1.968A1.984 1.984 0 0 0 4.661 21h14.678c.708 0 1.349-.362 1.714-.968a1.989 1.989 0 0 0 .054-1.968L13.768 4.2zM4.661 19 12 5.137 19.344 19H4.661z"/></svg>
+              </div>
             </div>
-            <input type="password" name="passwordConfirm">
+            <input type="text" name="lName">
+            <p class="inputNoticeMessage"></p>
           </div>
-        </div>
-        <div class="passwordValidatorGroup">
-          <p>Password Requirements:</p>
-          <ul>
-            <li>is at Least 7 Characters Long</li>
-            <li>has an Uppercase Letter</li>
-            <li>has a Lowercase Letter</li>
-            <li>contains a Digit</li>
-            <li>contains a Special Character</li>
-            <li>match each other</li>
-          </ul>
+          <div class="inputGroup" data-input="email">
+            <div class="labelWrapper">
+              <label for="email">Email</label>
+              <div class="inputNoticeIcon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.001 10h2v5h-2zM11 16h2v2h-2z"/><path d="M13.768 4.2C13.42 3.545 12.742 3.138 12 3.138s-1.42.407-1.768 1.063L2.894 18.064a1.986 1.986 0 0 0 .054 1.968A1.984 1.984 0 0 0 4.661 21h14.678c.708 0 1.349-.362 1.714-.968a1.989 1.989 0 0 0 .054-1.968L13.768 4.2zM4.661 19 12 5.137 19.344 19H4.661z"/></svg>
+              </div>
+            </div>
+            <input type="text" name="email">
+            <p class="inputNoticeMessage"></p>
+          </div>
+          <div class="inputGroup" data-input="phone">
+            <div class="labelWrapper">
+              <label for="phone">Phone Number</label>
+              <div class="inputNoticeIcon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.001 10h2v5h-2zM11 16h2v2h-2z"/><path d="M13.768 4.2C13.42 3.545 12.742 3.138 12 3.138s-1.42.407-1.768 1.063L2.894 18.064a1.986 1.986 0 0 0 .054 1.968A1.984 1.984 0 0 0 4.661 21h14.678c.708 0 1.349-.362 1.714-.968a1.989 1.989 0 0 0 .054-1.968L13.768 4.2zM4.661 19 12 5.137 19.344 19H4.661z"/></svg>
+              </div>
+            </div>
+            <input type="text" name="phone">
+            <p class="inputNoticeMessage">This is a Message</p>
+          </div>
+          <div class="passwordInputGroup">
+            <div class="inputGroup" data-input="password">
+              <div class="labelWrapper">
+                <label for="password">Password</label>
+                <div class="inputNoticeIcon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.001 10h2v5h-2zM11 16h2v2h-2z"/><path d="M13.768 4.2C13.42 3.545 12.742 3.138 12 3.138s-1.42.407-1.768 1.063L2.894 18.064a1.986 1.986 0 0 0 .054 1.968A1.984 1.984 0 0 0 4.661 21h14.678c.708 0 1.349-.362 1.714-.968a1.989 1.989 0 0 0 .054-1.968L13.768 4.2zM4.661 19 12 5.137 19.344 19H4.661z"/></svg>
+              </div>
+              </div>
+              <input type="password" name="password">
+            </div>
+            <div class="inputGroup" data-input="passwordConfirm">
+              <div class="labelWrapper">
+                <label for="passwordConfirm">Confirm Password</label>
+              </div>
+              <input type="password" name="passwordConfirm">
+            </div>
+          </div>
+          <div class="passwordValidatorGroup">
+            <p>Password Requirements:</p>
+            <ul>
+              <li class="passwordMessage checkLength"><span>is at Least 7 Characters Long</span></li>
+              <li class="passwordMessage checkUppercase"><span>has an Uppercase Letter</span></li>
+              <li class="passwordMessage checkLowercase"><span>has a Lowercase Letter</span></li>
+              <li class="passwordMessage checkDigit"><span>contains a Digit</span></li>
+              <li class="passwordMessage checkSpecialCharacter"><span>contains a Special Character</span></li>
+              <li class="passwordMessage checkMatch"><span>match each other</span></li>
+            </ul>
+          </div>
         </div>
         <button type="submit">Submit</button>
       </form>

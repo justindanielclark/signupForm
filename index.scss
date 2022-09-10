@@ -9,9 +9,7 @@ $layoutBreakpointLarge: 1200px;
 $layoutBreakpointMedium: 1024px;
 $layoutBreakpointSmall: 768px;
 $layoutBreakpointExtraSmall: 480px;
-$layoutSideImageSizeLarge: 400px;
-$layoutSideImageSizeMedium: 350px;
-$layoutSideImageSizeSmall: 300px;
+$layoutSideImageSize: 175px;
 
 //Colors
 $colorTextDark: rgba(15,15,15,1);
@@ -39,6 +37,9 @@ $colorBackgroundSemiTransparent: rgba(0,0,0,.5);
 * {
   box-sizing: border-box;
 }
+html {
+  font-size: 16px;
+}
 body {
   background-color: $colorDark;
   width: 100%;
@@ -48,47 +49,27 @@ body {
 }
 div.restrainingContainer {
   min-width: 320px;
-  max-width: $layoutBreakpointLarge;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  background-color: darkgoldenrod;
   @media (max-width: $layoutBreakpointLarge) {
     border: none;
-    background-color: purple;
-  }
-  @media (max-width: $layoutBreakpointMedium) {
-    background-color: blue;
   }
   @media (max-width: $layoutBreakpointSmall) {
-    background-color: green;
     flex-direction: column;
-  }
-  @media (max-width: $layoutBreakpointExtraSmall) {
-    background-color: orange;
   }
 }
 section:first-of-type {
-  flex: 0 1 $layoutSideImageSizeLarge;
+  flex: 0 1 $layoutSideImageSize;
   background-image: url('./src/signingImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   border-right: 4px solid $colorBorderHighlight;
-  @media (max-width: $layoutBreakpointLarge) {
-    flex: 0 1 $layoutSideImageSizeMedium;
-  }
-  @media (max-width: $layoutBreakpointMedium) {
-    flex: 0 1 $layoutSideImageSizeSmall;
-  }
-  @media (max-width: $layoutBreakpointSmall) {
-    flex: 0 1 0;
-    background-position: left -15em;
-    background-size: 100%;
-  }
   &>.banner {
     width: 100%;
     margin: 5em 0 0 0;
@@ -158,7 +139,7 @@ section:last-of-type {
     }
   }
 }
-form {
+.formContainer {
   border-radius: 5px;
   background-color: #DDD;
   display: flex;
@@ -168,21 +149,19 @@ form {
   gap: .5em;
   padding: $containerPadding;
   color: rgba(15, 15, 15, 1);
-  margin-bottom: 2em;
+  margin-bottom: .5em;
   @media(max-width: $layoutBreakpointExtraSmall){
     flex-direction: column;
     flex-wrap: nowrap;
   }
 }
-form > * {
-  flex: 1 0 300px;
-  margin-top: .7em;
+.formContainer > * {
+  flex: 1 0 250px;
   @media(max-width: $layoutBreakpointExtraSmall){
     flex: 1 0 0;
     margin-top: 0;
   }
 }
-
 .inputGroup {
   display: flex;
   flex-direction: column;
@@ -197,13 +176,11 @@ form > * {
   &>input:focus {
     outline: none;
   }
-  &>.labelWrapper {
-    position: relative;
-  }
   &>.labelWrapper>label {
     color: #123;
     position: relative;
     font-size: 1.5rem;
+    padding-bottom: .15em;
   }
   &>.labelWrapper::before {
     content: '';
@@ -234,8 +211,14 @@ form > * {
     background-color: $colorInvalid;
     width: 100%;
   }
+  .inputNoticeMessage {
+    font-size: .9rem;
+    padding: .15em;
+    height: 1em;
+  }
 }
 .labelWrapper {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -246,8 +229,8 @@ form > * {
   position: absolute;
   top: 100%;
   right: 0;
-  height: 24px;
-  width: 24px;
+  height: 1em;
+  width: 1em;
   transition: top .25s ease-in;
   &>svg{
     stroke: transparent;
@@ -265,19 +248,22 @@ form > * {
     list-style-type: circle;
     padding-left: 1.5em;
     &>li{
-      font-size: .75em;
+      font-size: 1rem;
     }
   }
 }
 button[type="submit"]{
+  display: block;
   margin-left: auto;
-  margin-right: 4em;
   font-size: 1.25rem;
-  flex: 0 0 8em;
-  padding: $inputPadding;
+  padding: .5em 1em;
   border: 2px solid $colorDark;
   border-radius: 5px;
-  @media(max-width: $layoutBreakpointExtraSmall){
-    flex: 1 0 0;
-  }
+}
+
+.passwordMessage.valid>span {
+  color: $colorValid;
+}
+.passwordMessage.invalid>span {
+  color: $colorInvalid;
 }
